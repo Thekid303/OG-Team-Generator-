@@ -1,9 +1,9 @@
 let role, name, id, email, office, github, school, job;
 
 Team = (teamOg) => {
-const htmlInside = members(teamOg);
-const htmlFull =
-`
+    const htmlInside = members(teamOg);
+    const htmlFull =
+        `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,24 +41,25 @@ const htmlFull =
         </body>
 
 </html>`;
-return htmlFull;
+    return htmlFull;
 }
-
+// test
 members = (teamOg) => {
-let htmlPart = '';
-teamOg.forEach(n => {
-role = n.role;
-name = n.name;
-id = n.id;
-email = n.email
-if (n.role === 'Manager') {
-office = n.officeNumber;
-icon = "fas fa-mug-hot";
-job = `<div class="col-12 col-4 col-lg-3 mx-md-4 my-4 py-1">
+    let htmlPart = '';
+    teamOg.forEach(n => {
+        role = n.role;
+        name = n.name;
+        id = n.id;
+        email = n.email
+        if (n.role === 'Manager') {
+            office = n.officeNumber;
+            // icon = "fas fa-mug-hot"; 
+            job = `<div class="col-12 col-4 col-lg-3 mx-md-4 my-4 py-1">
     <div class="card">
         <div class="card-header">
             ${name}<br />
-            <i class="${icon}"></i> ${role}
+            
+            ${role}
         </div>
         <div class="card-body">
             <p class="card-text">ID: ${id}</p>
@@ -67,16 +68,17 @@ job = `<div class="col-12 col-4 col-lg-3 mx-md-4 my-4 py-1">
         </div>
     </div>
 </div>`;
-htmlPart += job;
-} else if (n.role === 'Engineer') {
-github = n.github;
-icon = "fas fa-glasses";
-job = `
+            htmlPart += job;
+        } else if (n.role === 'Engineer') {
+            github = n.github;
+
+            job = `
 <div class="col-12 col-4 col-lg-3 mx-md-4 my-4 py-1">
     <div class="card">
         <div class="card-header">
             ${name}<br />
-            <i class="${icon}"></i> ${role}
+            
+            ${role}
         </div>
         <div class="card-body">
             <p class="card-text">ID: ${id}</p>
@@ -85,16 +87,17 @@ job = `
         </div>
     </div>
 </div>`;
-htmlPart += job;
-} else {
-school = n.school;
-icon = "fas fa-user-graduate";
-job = `
+            htmlPart += job;
+        } else {
+            school = n.school;
+
+            job = `
 <div class="col-12 col-4 col-lg-3 mx-md-4 my-4 py-1">
     <div class="card">
         <div class="card-header">
             ${name}<br />
-            <i class="${icon}"></i> ${role}
+            
+            ${role}
         </div>
         <div class="card-body">
             <p class="card-text">ID: ${id}</p>
@@ -103,9 +106,9 @@ job = `
         </div>
     </div>
 </div>`;
-htmlPart += job;
-}
-});
-return htmlPart;
+            htmlPart += job;
+        }
+    });
+    return htmlPart;
 }
 module.exports = Team;
